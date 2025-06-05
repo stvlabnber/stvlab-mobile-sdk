@@ -6,12 +6,16 @@
 
 ## 使用說明:
 ### ssl 憑證綁定驗證
-> SslHelper.initCheckCert(true);
-> SslHelper.initCertPinning(true, "xxx.crt");
-> SslHelper.initServerTrusted(true, "xxxxx");//cert sha256 public key
-> SslHelper.setSocketFactory(context, httpsConn);//ssl 憑證驗證
+SslHelper.initCheckCert(true);
+
+SslHelper.initCertPinning(true, "xxx.crt");
+
+SslHelper.initServerTrusted(true, "xxxxx");//cert sha256 public key
+
+SslHelper.setSocketFactory(context, httpsConn);//ssl 憑證驗證
 
 ### 九宮格: 
+
 待補充。
 
 
