@@ -18,7 +18,6 @@ SslHelper.initServerTrusted(true, "xxxxx");//cert sha256 public key
 SslHelper.setSocketFactory(context, httpsConn);//ssl 憑證驗證
 
 
-
 ### 2.九宮格: 
 待補充。
 
