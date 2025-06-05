@@ -1,10 +1,17 @@
 # stvlab-mobile-lib
-common utilities for android, including view helpers, network components.
+此 aar 檔包含 android app 開發上可使用的共用元件，包含以下 package:
+1. network: ssl 憑證綁定驗證, ssl 伺服器端憑證驗證
+2. util: ActivityHelper, ActivityManagerDeviceHelper, DialogHelper, ImageViewHelper
+3. view: 九宮格、行事曆、ViewPager
 
-utility list:
-1. ActivityHelper
-2. WebViewHelper
-3. ListViewHelper: used to calculate and set the height of a listview 
-4. NumberHelper
-5. ScrollViewHolder
+使用說明:
+1. ssl 憑證綁定驗證
+SslHelper.initCheckCert(true);
+SslHelper.initCertPinning(true, "xxx.crt");
+SslHelper.initServerTrusted(true, "xxxxx");//cert sha256 public key
+SslHelper.setSocketFactory(context, httpsConn);//ssl 憑證驗證
+
+2. 九宮格: 
+待補充。
+
 
