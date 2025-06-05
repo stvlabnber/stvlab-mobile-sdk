@@ -5,13 +5,13 @@
 3. view: 九宮格、行事曆、ViewPager
 
 ## 使用說明:
-1. ssl 憑證綁定驗證
-SslHelper.initCheckCert(true);
-SslHelper.initCertPinning(true, "xxx.crt");
-SslHelper.initServerTrusted(true, "xxxxx");//cert sha256 public key
-SslHelper.setSocketFactory(context, httpsConn);//ssl 憑證驗證
+### ssl 憑證綁定驗證
+> SslHelper.initCheckCert(true);
+> SslHelper.initCertPinning(true, "xxx.crt");
+> SslHelper.initServerTrusted(true, "xxxxx");//cert sha256 public key
+> SslHelper.setSocketFactory(context, httpsConn);//ssl 憑證驗證
 
-2. 九宮格: 
+### 九宮格: 
 待補充。
 
 
