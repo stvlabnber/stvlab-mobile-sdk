@@ -1,21 +1,21 @@
 # stvlab-mobile-lib
 
 ## 此 aar 檔包含 android app 開發上可使用的共用元件，包含以下 package:
-1. network: ssl 憑證綁定驗證, ssl 伺服器端憑證驗證
-2. util: ActivityHelper, ActivityManagerDeviceHelper, DialogHelper, ImageViewHelper
+1. network: SSL 憑證綁定驗證, SSL 伺服器端憑證驗證
+2. util: 通知功能處理, 網路上傳下載資料處理, DialogHelper, ImageViewHelper
 3. view: 九宮格、行事曆、ViewPager
 
 
 ## 使用說明:
 
-### 1.ssl 憑證綁定驗證
-SslHelper.initCheckCert(true);
+### 1.SSL 憑證綁定驗證
+SSLHelper.initCheckCert(true);
 
-SslHelper.initCertPinning(true, "xxx.crt");
+SSLHelper.initCertPinning(true, "xxx.crt");
 
-SslHelper.initServerTrusted(true, "xxxxx");//cert sha256 public key
+SSLHelper.initServerTrusted(true, "xxxxx");//cert sha256 public key
 
-SslHelper.setSocketFactory(context, httpsConn);//ssl 憑證驗證
+SSLHelper.setSocketFactory(context, httpsConn);//SSL 憑證驗證
 
 
 ### 2.九宮格: 
