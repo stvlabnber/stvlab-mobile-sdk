@@ -18,7 +18,27 @@ SSLHelper.setSocketFactory(context, httpsConn);//SSL 憑證驗證
 ### 2.九宮格: 
 DragGridView grid = new DragGridView(context);//create grid view
 grid.setFooterTextSize(13f);
-list = FuncController.getGridItems(context);//預設清單
-GridHelper.init(context, grid, list, true, false, true, prefFileName);
+List<GridItem> list = new ArrayList<GridItem>();
+list.add(new GridItem("1", R.mipmap.stock_news, "xxx", 0));
+list.add(new GridItem("2", R.mipmap.stock_track, "yyy", 1));
+list.add(new GridItem("3", R.mipmap.stock_recom, "zzz", 2));
 
+GridHelper.init("test");//sharedPreference file name
+GridHelper.showFooterText(true);
+GridHelper.setDraggable(true);
+GridHelper.load(context, grid, list);
+
+grid.setOnRearrangeListener(new DragGridView.OnRearrangeListener() {
+	public void onRearrange(int oldIndex, int newIndex) {
+		GridHelper.reorderGridItems(context, list, oldIndex, newIndex);
+	}
+});
+
+grid.setOnItemClickListener(new OnItemClickListener() {
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position, long arg3) {
+		GridItem gridItem = (GridItem) view.getTag();
+		FuncController.startActivity(context, gridItem.key, null);
+	}
+});
 
