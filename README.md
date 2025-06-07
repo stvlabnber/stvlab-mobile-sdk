@@ -19,6 +19,9 @@ SSLHelper.setSocketFactory(context, httpsConn);//SSL 憑證驗證
 
 
 ### 2.九宮格: 
-待補充。
+DragGridView grid = new DragGridView(context);//create grid view
+grid.setFooterTextSize(13f);
+list = FuncController.getGridItems(context);//預設清單
+GridHelper.init(context, grid, list, true, false, true, prefFileName);
 
 
