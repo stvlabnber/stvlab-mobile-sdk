@@ -10,8 +10,8 @@
 
 ### 1.SSL 憑證綁定驗證
 SSLHelper.initCheckCert(true);
-//SSLHelper.initCertPinning("test.crt");
-//SSLHelper.initServerTrusted("xxxxx");//cert sha256 public key
+SSLHelper.initCertPinning("test.crt");
+SSLHelper.initServerTrusted("xxxxx");//cert sha256 public key
 SSLHelper.validate(context, httpsConn);//SSL 憑證驗證
 
 
