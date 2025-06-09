@@ -10,22 +10,33 @@
 
 ### 1.SSL 憑證綁定驗證
 SSLHelper.initCheckCert(true);
+
 SSLHelper.initCertPinning("test.crt");
+
 SSLHelper.initServerTrusted("xxxxx");//cert sha256 public key
+
 SSLHelper.validate(context, httpsConn);//SSL 憑證驗證
 
 
 ### 2.九宮格
 DragGridView grid = new DragGridView(context);//create grid view
+
 grid.setFooterTextSize(13f);
+
 List<GridItem> list = new ArrayList<GridItem>();
+
 list.add(new GridItem("1", R.mipmap.news, "news", 0));
+
 list.add(new GridItem("2", R.mipmap.stock, "stock", 1));
+
 list.add(new GridItem("3", R.mipmap.market, "market", 2));
 
 GridHelper.init("test");//sharedPreference file name
+
 GridHelper.showFooterText(true);
+
 GridHelper.setDraggable(true);
+
 GridHelper.load(context, grid, list);
 
 grid.setOnRearrangeListener(new DragGridView.OnRearrangeListener() {
