@@ -53,3 +53,24 @@ grid.setOnItemClickListener(new OnItemClickListener() {
 	}
 });
 
+
+### 3.檔案下載
+String fileName = "form.pdf";
+
+final String fileUrl = "https://your_file_url";
+
+final String filePath = "your_file_path";
+
+FileDownloader.DownloadCompleteListener downloadCompleteListener = new FileDownloader.DownloadCompleteListener() {
+	@Override
+	public void onDownloadComplete() {
+		if(FileHelper.checkPdfValid(filePath)){
+			Bundle bundle = new Bundle();
+			bundle.putString(DataKey.PDF_PATH, filePath);
+			bundle.putString(DataKey.PDF_TITLE, context.getResources().getString(R.string.pdf_view_title));
+			ActivityHelper.startActivity(context, PdfViewActivity.class, bundle);
+		}
+	}
+};
+
+FileDownloader.download(context, fileUrl, filePath, downloadCompleteListener);
