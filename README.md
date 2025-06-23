@@ -9,13 +9,13 @@
 ## 使用說明:
 
 ### 1.SSL 憑證綁定驗證
-SSLHelper.initCheckCert(true);
+SslToolkit.initCheckCert(true);
 
-SSLHelper.initCertPinning("test.crt");
+SslToolkit.initCertPinning("test.crt");
 
-SSLHelper.initServerTrusted("xxxxx");//cert sha256 public key
+SslToolkit.initServerTrusted("xxxxx");//cert sha256 public key
 
-SSLHelper.validate(context, httpsConn);//SSL 憑證驗證
+SslToolkit.validate(context, httpsConn);//SSL 憑證驗證
 
 
 ### 2.九宮格
@@ -53,3 +53,24 @@ grid.setOnItemClickListener(new OnItemClickListener() {
 	}
 });
 
+
+### 3.檔案下載
+String fileName = "form.pdf";
+
+final String fileUrl = "https://your_file_url";
+
+final String filePath = "your_file_path";
+
+FileDownloader.DownloadCompleteListener downloadCompleteListener = new FileDownloader.DownloadCompleteListener() {
+	@Override
+	public void onDownloadComplete() {
+		if(FileHelper.checkPdfValid(filePath)){
+			Bundle bundle = new Bundle();
+			bundle.putString(DataKey.PDF_PATH, filePath);
+			bundle.putString(DataKey.PDF_TITLE, context.getResources().getString(R.string.pdf_view_title));
+			ActivityHelper.startActivity(context, PdfViewActivity.class, bundle);
+		}
+	}
+};
+
+FileDownloader.download(context, fileUrl, filePath, downloadCompleteListener);
