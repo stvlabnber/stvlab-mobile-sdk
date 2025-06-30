@@ -9,6 +9,7 @@
 ## 使用說明:
 
 ### 1.SSL 憑證綁定驗證
+
 SslManager.initCheckCert(true);
 
 SslManager.initCertPinning("test.crt");
