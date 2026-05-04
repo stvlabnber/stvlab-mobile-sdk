@@ -9,43 +9,42 @@
 ## 使用說明:
 
 ### 1.SSL 憑證綁定驗證
-SslToolkit.initCheckCert(true);
 
-SslToolkit.initCertPinning("test.crt");
+SslManager.initCheckCert(true);
 
-SslToolkit.initServerTrusted("xxxxx");//cert sha256 public key
+SslManager.initCertPinning("test.crt");
 
-SslToolkit.validate(context, httpsConn);//SSL 憑證驗證
+SslManager.initServerTrusted("xxxxx");//cert sha256 public key
+
+SslManager.validate(context, httpsConn);//SSL 憑證驗證
 
 
 ### 2.九宮格
-DragGridView grid = new DragGridView(context);//create grid view
-
-grid.setFooterTextSize(13f);
-
 List<GridItem> list = new ArrayList<GridItem>();
 
-list.add(new GridItem("1", R.mipmap.news, "news", 0));
+list.add(new GridItem("1", R.mipmap.news, 0));
 
-list.add(new GridItem("2", R.mipmap.stock, "stock", 1));
+list.add(new GridItem("2", R.mipmap.stock, 1));
 
-list.add(new GridItem("3", R.mipmap.market, "market", 2));
+list.add(new GridItem("3", R.mipmap.market, 2));
 
-GridHelper.init("test");//sharedPreference file name
+GridManager.init("test");//sharedPreference file name
 
-GridHelper.showFooterText(true);
+GridManager.showFooterText(true);
 
-GridHelper.setDraggable(true);
+GridManager.setFooterTextSize(13);
 
-GridHelper.load(context, grid, list);
+GridManager.setDraggable(true);
 
-grid.setOnRearrangeListener(new DragGridView.OnRearrangeListener() {
+GridManager.load(context, list);
+
+GridManager.getGridView().setOnRearrangeListener(new DragGridView.OnRearrangeListener() {
 	public void onRearrange(int oldIndex, int newIndex) {
-		GridHelper.reorderGridItems(context, list, oldIndex, newIndex);
+		GridManager.reorderGridItems(context, list, oldIndex, newIndex);
 	}
 });
 
-grid.setOnItemClickListener(new OnItemClickListener() {
+GridManager.getGridView().setOnItemClickListener(new OnItemClickListener() {
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long arg3) {
 		GridItem gridItem = (GridItem) view.getTag();
