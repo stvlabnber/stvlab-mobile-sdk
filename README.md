@@ -15,21 +15,8 @@ SslManager.initCheckCert(true);
 SslManager.initCertPinning("test.crt");
 
 SslManager.initServerTrusted("xxxxx");//cert sha256 public key
-<<<<<<< HEAD
-=======
 
 SslManager.validate(context, httpsConn);//SSL 憑證驗證
->>>>>>> d5554a2a07d2608a5591bbfe49f43e9d3f8591ff
-
-SslManager.validate(context, httpsConn);//SSL 憑證驗證
-
-<<<<<<< HEAD
-=======
-### 2.九宮格
-GridView grid = new GridView(context);//create grid view
-
-grid.setFooterTextSize(13f);
->>>>>>> d5554a2a07d2608a5591bbfe49f43e9d3f8591ff
 
 ### 2.九宮格
 List<GridItem> list = new ArrayList<GridItem>();
@@ -42,23 +29,11 @@ list.add(new GridItem("3", R.mipmap.market, 2));
 
 GridManager.init("test");//sharedPreference file name
 
-<<<<<<< HEAD
-GridManager.showFooterText(true);
-
-GridManager.setFooterTextSize(13);
-
-GridManager.setDraggable(true);
-
-GridManager.load(context, list);
-=======
-GridManager.init("test");//sharedPreference file name
-
 GridManager.showFooterText(true);
 
 GridManager.setDraggable(true);
 
 GridManager.load(context, grid, list);
->>>>>>> d5554a2a07d2608a5591bbfe49f43e9d3f8591ff
 
 GridManager.getGridView().setOnRearrangeListener(new DragGridView.OnRearrangeListener() {
 	public void onRearrange(int oldIndex, int newIndex) {
